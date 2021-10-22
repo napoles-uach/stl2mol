@@ -59,7 +59,8 @@ def getC(cx,cy,cz):
 #exmp=st.sidebar.selectbox('',['CCCCCc1cc(c2c(c1)OC([C@H]3[C@H]2C=C(CC3)C)(C)C)O','CCCCCCCC','OC[C@@H](O1)[C@@H](O)[C@H](O)[C@@H]2[C@@H]1c3c(O)c(OC)c(O)cc3C(=O)O2'])
 
 #smi=st.text_input("smile", exmp)
-ids=st.sidebar.text_input("identifier, name, etc", 'Caffeine')
+st.markdown('STL files from molecules!')
+ids=st.sidebar.text_input("identifier, name, SMILES, etc", 'Caffeine')
 
 smi=CIRconvert(ids)
 st.sidebar.write('SMILES: '+smi)
@@ -128,7 +129,7 @@ mesh3D = go.Mesh3d(
             showscale=False)
 
 
-title = "STL from Molecule"
+title = ""
 layout = go.Layout(paper_bgcolor='rgb(0.999,0.999,0.999)',
             title_text=title, title_x=0.5,
                    font_color='brown',
