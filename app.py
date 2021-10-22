@@ -92,9 +92,10 @@ mesh_list=[]
 for i in meshes:
   mesh_list.append(i.data)
 
+filename=ids+'.stl'
 combined = mesh.Mesh(numpy.concatenate(mesh_list))
-combined.save('combined.stl', mode=stl.Mode.ASCII)  
-
+#combined.save('combined.stl', mode=stl.Mode.ASCII)  
+combined.save(filename, mode=stl.Mode.ASCII) 
 
 
 # Put your Python+Streamlit code here ...
@@ -110,7 +111,8 @@ def stl2mesh3d(stl_mesh):
     J = np.take(ixr, [3*k+1 for k in range(p)])
     K = np.take(ixr, [3*k+2 for k in range(p)])
     return vertices, I, J, K
-my_mesh = mesh.Mesh.from_file('combined.stl')
+#my_mesh = mesh.Mesh.from_file('combined.stl')
+my_mesh = mesh.Mesh.from_file(filename)
 vertices, I, J, K = stl2mesh3d(my_mesh)
 x, y, z = vertices.T
 
