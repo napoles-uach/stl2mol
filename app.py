@@ -60,7 +60,7 @@ def getC(cx,cy,cz):
 
 #smi=st.text_input("smile", exmp)
 st.markdown('# STL files from molecules')
-st.markdown('# Ready for 3D Printing or AR')
+st.markdown('## Ready for 3D Printing or AR')
 ids=st.sidebar.text_input("identifier, name, SMILES, etc", 'Caffeine')
 
 smi=CIRconvert(ids)
