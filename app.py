@@ -159,5 +159,5 @@ raw_html=fig.to_html()
 #raw_html = base64.b64encode(raw_html).decode()
 components.html(raw_html,height=900)
 
-with open('combined.stl', 'rb') as my_file:
-    st.sidebar.download_button(label = 'Download .stl file', data = my_file, file_name = 'combined.stl', )   
+with open(filename, 'rb') as my_file:
+    st.sidebar.download_button(label = 'Download .stl file', data = my_file, file_name = filename, )   
