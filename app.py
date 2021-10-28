@@ -1,5 +1,5 @@
 import streamlit as st
-
+import py3Dmol
 import numpy as np
 import stl
 import math
@@ -15,6 +15,25 @@ from rdkit import DataStructs
 import numpy
 from urllib.request import urlopen
 from urllib.parse import quote
+
+def show(smi, style='sphere'):
+    mol = Chem.MolFromSmiles(smi)
+    mol = Chem.AddHs(mol)
+    AllChem.EmbedMolecule(mol)
+    AllChem.MMFFOptimizeMolecule(mol, maxIters=200)
+    mblock = Chem.MolToMolBlock(mol)
+
+    view = py3Dmol.view(width=600, height=400)
+    view.addModel(mblock, 'mol')
+    view.setStyle({style:{}})
+    view.zoomTo()
+    view.show()
+    view.render()
+    t =view.js()
+    f = open('viz.html', 'w')
+    f.write(t.startjs)
+    f.write(t.endjs)
+    f.close()
 
 def CIRconvert(ids):
     try:
@@ -102,3 +121,9 @@ combined.save(filename, mode=stl.Mode.ASCII)
 
 with open(filename, 'rb') as my_file:
     st.sidebar.download_button(label = 'Download .stl file', data = my_file, file_name = filename, )   
+
+
+show(smi)
+HtmlFile = open("viz.html", 'r', encoding='utf-8')
+source_code = HtmlFile.read() 
+components.html(source_code, height = 600,width=600)
