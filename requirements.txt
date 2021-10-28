@@ -1,3 +1,4 @@
 rdkit-pypi
 numpy-stl
 plotly
+py3dmol
