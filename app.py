@@ -1,10 +1,10 @@
 import streamlit as st
-import plotly
+
 import numpy as np
 import stl
 import math
 from stl import mesh  # pip install numpy-stl
-import plotly.graph_objects as go
+
 import streamlit.components.v1 as components
 from rdkit import Chem
 from rdkit.Chem import Draw
