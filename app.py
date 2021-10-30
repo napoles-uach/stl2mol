@@ -83,7 +83,7 @@ st.markdown('## Ready for 3D Printing 🖨️')
 ids=st.sidebar.text_input("identifier, name, SMILES, etc", 'Caffeine')
 
 smi=CIRconvert(ids)
-st.sidebar.write('SMILES: '+smi)
+st.sidebar.write(ids+' SMILES: '+smi)
 m=Chem.MolFromSmiles(smi)
 m=Chem.AddHs(m)
 AllChem.EmbedMolecule(m,randomSeed=0xf00d)
