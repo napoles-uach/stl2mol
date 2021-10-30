@@ -41,6 +41,7 @@ def CIRconvert(ids):
         ans = urlopen(url).read().decode('utf8')
         return ans
     except:
+        st.sidebar.write('cannot convert ids, try with SMILES')
         return 'C'
 
 def getH(cx,cy,cz):
